@@ -1,19 +1,34 @@
-/* Cat Hill Clinic — full-site pitch mockup
-   Carries the approved single-page mockup's identity: sea teal on warm paper,
-   Charter serif, honey accent, spine motif. No webfonts — demos offline. */
+/* Cat Hill Clinic — full-site pitch mockup (Sept 2026 redesign)
+   Identity taken from the new emblem: navy #103050 + sage #88A898 on cream,
+   coral accent for warmth, tracked-serif wordmark feel. No webfonts — demos offline.
+   Legacy token names (--sea, --mist, --honey) are kept as aliases so older rules
+   pick up the new palette without churn. */
 
 :root {
-  --ink: #1F3A3D;
-  --sea: #2E7A78;
-  --sea-deep: #225E5C;
-  --mist: #DCEBEA;
-  --mist-soft: #EEF5F4;
-  --paper: #FBFAF7;
-  --honey: #DDA648;
-  --line: #D8E2E1;
-  --body: #3D5457;
-  --shadow: 0 10px 30px rgba(31, 58, 61, 0.10);
-  --shadow-lg: 0 22px 54px rgba(31, 58, 61, 0.16);
+  --navy: #103050;
+  --navy-deep: #0B2038;
+  --sage: #88A898;
+  --sage-deep: #5F8271;
+  --sage-tint: #E6EEE9;
+  --sage-soft: #F2F6F3;
+  --cream: #FEFBF6;
+  --coral: #D9714E;
+  --coral-deep: #C25B39;
+  --coral-soft: #FBE9E2;
+  --wa: #1FA855;
+  --wa-deep: #178F47;
+
+  --ink: var(--navy);
+  --sea: var(--sage-deep);
+  --sea-deep: var(--navy);
+  --mist: var(--sage-tint);
+  --mist-soft: var(--sage-soft);
+  --paper: var(--cream);
+  --honey: var(--coral);
+  --line: #DCE3DE;
+  --body: #3B4A5C;
+  --shadow: 0 10px 30px rgba(16, 48, 80, 0.10);
+  --shadow-lg: 0 22px 54px rgba(16, 48, 80, 0.16);
   --serif: Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
@@ -35,7 +50,7 @@ img { max-width: 100%; display: block; }
 
 a { color: inherit; }
 
-:focus-visible { outline: 2px solid var(--sea); outline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--coral); outline-offset: 3px; }
 
 .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
 
@@ -45,8 +60,9 @@ h1, h2, h3.display {
   font-family: var(--serif);
   font-weight: 600;
   color: var(--ink);
-  line-height: 1.15;
+  line-height: 1.12;
   letter-spacing: 0.1px;
+  text-wrap: balance;
 }
 
 h1 { font-size: clamp(2.2rem, 4.8vw, 3.5rem); }
@@ -56,15 +72,15 @@ h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
   display: inline-block;
   font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--sea);
+  color: var(--coral);
   margin-bottom: 14px;
 }
 
 .lede { font-size: 1.1rem; max-width: 58ch; }
 
-.sea-i { font-style: italic; color: var(--sea); }
+.sea-i { font-style: italic; color: var(--coral); }
 
 /* ---------- Spine motif ---------- */
 
@@ -76,10 +92,11 @@ h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
 }
 
 .spine-h {
-  height: 4px;
-  width: 84px;
-  background-image: radial-gradient(circle, var(--honey) 2.4px, transparent 3px);
-  background-size: 16px 4px;
+  height: 6px;
+  width: 96px;
+  background-image: radial-gradient(circle, var(--navy) 2.6px, transparent 3.2px), radial-gradient(circle, var(--sage) 1.6px, transparent 2.2px);
+  background-size: 16px 6px, 16px 6px;
+  background-position: 0 0, 8px 0;
   background-repeat: repeat-x;
   margin: 18px 0 0;
 }
@@ -101,14 +118,14 @@ h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
 
 .btn:hover { transform: translateY(-1px); }
 
-.btn-sea { background: var(--sea); color: #fff; }
-.btn-sea:hover { box-shadow: 0 8px 22px rgba(46, 122, 120, 0.4); background: var(--sea-deep); }
+.btn-sea { background: var(--navy); color: #fff; }
+.btn-sea:hover { box-shadow: 0 8px 22px rgba(16, 48, 80, 0.35); background: var(--navy-deep); }
 
-.btn-outline { background: transparent; color: var(--sea-deep); border-color: var(--sea); }
-.btn-outline:hover { background: var(--mist-soft); }
+.btn-outline { background: transparent; color: var(--navy); border-color: var(--navy); }
+.btn-outline:hover { background: var(--sage-soft); }
 
-.btn-honey { background: var(--honey); color: #3d2f10; }
-.btn-honey:hover { box-shadow: 0 8px 22px rgba(221, 166, 72, 0.45); }
+.btn-honey { background: var(--coral); color: #fff; }
+.btn-honey:hover { box-shadow: 0 8px 22px rgba(217, 113, 78, 0.4); background: var(--coral-deep); }
 
 /* ---------- Header ---------- */
 
@@ -116,7 +133,7 @@ h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
   position: sticky;
   top: 0;
   z-index: 90;
-  background: rgba(251, 250, 247, 0.96);
+  background: rgba(254, 251, 246, 0.94);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
@@ -137,8 +154,8 @@ h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
 @media (max-width: 640px) { .brand .brand-word { height: 24px; } .brand .brand-icon { height: 44px; } }
 
 /* WhatsApp-first contact (Sept 2026 scope: no booking, no forms) */
-.btn-wa { background: #1FA855; color: #fff; border: 1px solid #1FA855; display: inline-flex; align-items: center; gap: 8px; }
-.btn-wa:hover { background: #178F47; border-color: #178F47; color: #fff; }
+.btn-wa { background: var(--wa); color: #fff; border: 1px solid var(--wa); display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.btn-wa:hover { background: var(--wa-deep); border-color: var(--wa-deep); color: #fff; box-shadow: 0 8px 22px rgba(31, 168, 85, 0.35); }
 .nav-cta .wa-ic, .btn-wa .wa-ic { font-size: 1em; line-height: 1; }
 .nav-cta .wa-ic { margin-right: 6px; }
 .wa-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow-lg); overflow: hidden; }
@@ -183,18 +200,18 @@ h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
 
 .main-nav a:hover { color: var(--sea-deep); }
 
-.main-nav a.active { color: var(--ink); border-bottom-color: var(--honey); }
+.main-nav a.active { color: var(--ink); border-bottom-color: var(--coral); }
 
 .main-nav a.nav-cta {
   margin-left: 6px;
   padding: 10px 20px;
   border-bottom: none;
   border-radius: 999px;
-  background: var(--sea);
+  background: var(--wa);
   color: #fff;
 }
 
-.main-nav a.nav-cta:hover { background: var(--sea-deep); color: #fff; }
+.main-nav a.nav-cta:hover { background: var(--wa-deep); color: #fff; }
 
 .nav-toggle {
   display: none;
@@ -212,10 +229,26 @@ h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
 .hero {
   position: relative;
   background:
-    radial-gradient(1100px 480px at 85% -10%, var(--mist) 0%, transparent 60%),
-    linear-gradient(180deg, var(--mist-soft) 0%, var(--paper) 85%);
+    radial-gradient(1100px 520px at 88% -10%, var(--sage-tint) 0%, transparent 62%),
+    linear-gradient(180deg, var(--sage-soft) 0%, var(--cream) 85%);
   overflow: hidden;
 }
+
+.hero::before, .page-hero::before, .site-footer::before {
+  content: "";
+  position: absolute;
+  right: -60px;
+  top: -40px;
+  width: 520px;
+  height: 520px;
+  background: url("../assets/logo-icon.png") no-repeat center / contain;
+  opacity: 0.06;
+  pointer-events: none;
+}
+.page-hero::before { width: 360px; height: 360px; right: -40px; top: -60px; opacity: 0.07; }
+.site-footer::before { opacity: 0.05; filter: invert(1) brightness(2); right: -80px; top: auto; bottom: -120px; }
+.page-hero, .site-footer { position: relative; overflow: hidden; }
+.page-hero .wrap, .site-footer .wrap { position: relative; }
 
 .hero-in {
   position: relative;
@@ -235,7 +268,7 @@ h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
 
 .hero-points li { font-size: 0.88rem; display: flex; align-items: center; gap: 8px; }
 
-.hero-points .tick { color: var(--sea); font-weight: 700; }
+.hero-points .tick { color: var(--sage-deep); font-weight: 700; }
 
 /* accreditation strip */
 .accred {
@@ -252,12 +285,70 @@ h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
 
 .accred span { font-size: 0.78rem; color: var(--body); max-width: 30ch; }
 
+/* ---------- Practitioner pair (home hero + contact) ---------- */
+
+.pract-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.pract-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 26px 22px 22px;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pract-card img {
+  width: 104px; height: 104px;
+  border-radius: 50%;
+  object-fit: cover; object-position: top;
+  border: 4px solid #fff;
+  box-shadow: 0 6px 18px rgba(16, 48, 80, 0.18);
+  margin-bottom: 14px;
+}
+
+.pract-card .p-role { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--coral); }
+.pract-card h3 { font-family: var(--serif); font-size: 1.22rem; color: var(--ink); margin: 4px 0 6px; }
+.pract-card p { font-size: 0.85rem; margin-bottom: 16px; flex: 1; }
+.pract-card .btn { width: 100%; padding: 12px 16px; font-size: 0.9rem; }
+.pract-card .p-sub { font-size: 0.72rem; margin-top: 8px; opacity: 0.75; }
+
+.pract-pair-note { grid-column: 1 / -1; text-align: center; font-size: 0.82rem; margin-top: 4px; }
+.pract-pair-note a { color: var(--navy); font-weight: 600; }
+
+/* ---------- Trust strip ---------- */
+
+.trust-strip { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.trust-in { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 22px 24px; }
+.trust-in > div { display: flex; align-items: center; gap: 12px; font-size: 0.85rem; color: var(--body); }
+.trust-in b { display: block; font-family: var(--serif); font-size: 1.05rem; color: var(--ink); line-height: 1.2; }
+.trust-in .t-ic { width: 40px; height: 40px; border-radius: 50%; background: var(--sage-soft); border: 1px solid var(--sage-tint); display: flex; align-items: center; justify-content: center; font-size: 1.05rem; flex-shrink: 0; }
+.trust-in img { height: 34px; width: auto; }
+
+/* ---------- Mobile sticky bar ---------- */
+
+.mobile-bar {
+  display: none;
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 150;
+  background: rgba(254, 251, 246, 0.96);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--line);
+  padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+  gap: 10px;
+}
+.mobile-bar .btn { flex: 1; padding: 12px 14px; font-size: 0.9rem; text-align: center; }
+
 /* ---------- Page hero (inner pages) ---------- */
 
 .page-hero {
   background:
-    radial-gradient(900px 400px at 90% -20%, var(--mist) 0%, transparent 60%),
-    var(--mist-soft);
+    radial-gradient(900px 400px at 90% -20%, var(--sage-tint) 0%, transparent 60%),
+    var(--sage-soft);
   border-bottom: 1px solid var(--line);
   padding: 64px 0 56px;
 }
@@ -268,10 +359,10 @@ h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
   font-size: 0.78rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--sea);
+  color: var(--sage-deep);
   margin-bottom: 12px;
 }
-.page-hero .crumb a { color: var(--sea); text-decoration: none; }
+.page-hero .crumb a { color: var(--sage-deep); text-decoration: none; }
 .page-hero .crumb a:hover { text-decoration: underline; }
 
 /* ---------- Quiz card (signature) ---------- */
@@ -381,10 +472,10 @@ h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
 
 .section.tint { background: var(--mist-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 
-.section.deep { background: linear-gradient(160deg, var(--sea-deep) 0%, #1c4a48 100%); }
+.section.deep { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%); }
 
 .section.deep h2, .section.deep .quote-card blockquote { color: #fff; }
-.section.deep .eyebrow { color: var(--honey); }
+.section.deep .eyebrow { color: var(--sage); }
 .section.deep .lede { color: rgba(255, 255, 255, 0.8); }
 
 .section-head { max-width: 620px; margin-bottom: 48px; }
@@ -417,7 +508,11 @@ a.card { text-decoration: none; display: block; }
 
 .card p { font-size: 0.9rem; }
 
-.card .more { display: inline-block; margin-top: 14px; font-size: 0.85rem; font-weight: 600; color: var(--sea-deep); }
+.card .more { display: inline-block; margin-top: 14px; font-size: 0.85rem; font-weight: 600; color: var(--navy); }
+
+/* who you'll see chip on therapy cards */
+.card .who { display: inline-flex; align-items: center; gap: 8px; margin: 2px 0 10px; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage-deep); }
+.card .who img { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; object-position: top; border: 2px solid #fff; box-shadow: 0 2px 6px rgba(16,48,80,0.18); }
 
 /* therapy card with small real photo */
 .therapy-card { display: flex; flex-direction: column; }
@@ -456,7 +551,7 @@ a.card { text-decoration: none; display: block; }
 .team-card .t-role {
   font-size: 0.75rem; font-weight: 700;
   letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--sea);
+  color: var(--sage-deep);
   margin: 2px 0 10px;
 }
 
@@ -475,7 +570,7 @@ a.card { text-decoration: none; display: block; }
   margin: 0 auto 14px;
 }
 .team-mini h3 { font-family: var(--serif); font-size: 1.05rem; color: var(--ink); }
-.team-mini span { font-size: 0.78rem; color: var(--sea); font-weight: 600; }
+.team-mini span { font-size: 0.78rem; color: var(--sage-deep); font-weight: 600; }
 
 /* ---------- Testimonials ---------- */
 
@@ -488,7 +583,9 @@ a.card { text-decoration: none; display: block; }
 
 .section.deep .quote-card { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.16); }
 
-.quote-card .stars { color: var(--honey); letter-spacing: 3px; margin-bottom: 12px; }
+.quote-card .stars { color: var(--coral); letter-spacing: 3px; margin-bottom: 12px; }
+.quote-card .seen-by { display: inline-block; margin-top: 10px; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage-deep); background: var(--sage-soft); border: 1px solid var(--sage-tint); padding: 4px 10px; border-radius: 999px; }
+.section.deep .quote-card .seen-by { color: var(--sage); background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.16); }
 
 .quote-card blockquote {
   font-family: var(--serif);
@@ -544,7 +641,7 @@ a.card { text-decoration: none; display: block; }
 
 .price-list li b { color: var(--ink); font-weight: 600; }
 
-.price-list .p-amount { font-family: var(--serif); font-size: 1.15rem; color: var(--sea-deep); white-space: nowrap; }
+.price-list .p-amount { font-family: var(--serif); font-size: 1.15rem; color: var(--coral-deep); white-space: nowrap; }
 
 .price-note { font-size: 0.75rem; text-align: center; margin-top: 14px; opacity: 0.75; }
 
@@ -580,6 +677,14 @@ a.card { text-decoration: none; display: block; }
 .aside ul { list-style: none; margin-bottom: 18px; }
 
 .aside li { font-size: 0.88rem; padding: 4px 0; display: flex; justify-content: space-between; gap: 10px; }
+.aside li b { color: var(--coral-deep); }
+
+/* practitioner card at the top of each therapy aside */
+.pract { display: flex; align-items: center; gap: 16px; padding-bottom: 18px; margin-bottom: 18px; border-bottom: 1px solid var(--line); }
+.pract img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; object-position: top; border: 3px solid #fff; box-shadow: var(--shadow); flex-shrink: 0; }
+.pract b { display: block; font-family: var(--serif); font-size: 1.08rem; color: var(--ink); line-height: 1.2; }
+.pract span { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage-deep); margin-top: 4px; }
+.pract small { display: block; font-size: 0.78rem; margin-top: 4px; }
 
 .aside .btn { width: 100%; text-align: center; }
 
@@ -590,7 +695,7 @@ a.card { text-decoration: none; display: block; }
 .check-list li::before {
   content: "✓";
   position: absolute; left: 0;
-  color: var(--sea);
+  color: var(--sage-deep);
   font-weight: 700;
 }
 
@@ -625,7 +730,7 @@ a.card { text-decoration: none; display: block; }
 
 .faq summary::-webkit-details-marker { display: none; }
 
-.faq summary::after { content: "+"; font-family: var(--serif); font-size: 1.3rem; color: var(--sea); flex-shrink: 0; }
+.faq summary::after { content: "+"; font-family: var(--serif); font-size: 1.3rem; color: var(--coral); flex-shrink: 0; }
 
 .faq details[open] summary::after { content: "–"; }
 
@@ -700,8 +805,8 @@ a.card { text-decoration: none; display: block; }
 .info-list .icon {
   width: 42px; height: 42px; flex-shrink: 0;
   border-radius: 10px;
-  background: var(--mist);
-  color: var(--sea-deep);
+  background: var(--sage-tint);
+  color: var(--navy);
   display: flex; align-items: center; justify-content: center;
   font-size: 1.1rem;
 }
@@ -737,7 +842,9 @@ a.card { text-decoration: none; display: block; }
 
 /* ---------- Footer ---------- */
 
-.site-footer { background: var(--ink); color: rgba(255, 255, 255, 0.72); }
+.site-footer { background: var(--navy-deep); color: rgba(255, 255, 255, 0.72); }
+.footer-logo { display: inline-block; background: var(--cream); border-radius: 12px; padding: 14px 18px; margin-bottom: 4px; }
+.footer-logo img { width: 190px; height: auto; }
 
 .footer-in {
   display: grid;
@@ -752,7 +859,7 @@ a.card { text-decoration: none; display: block; }
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--honey);
+  color: var(--sage);
   margin-bottom: 16px;
 }
 
@@ -932,13 +1039,19 @@ a.card { text-decoration: none; display: block; }
   .hero-in { grid-template-columns: 1fr; gap: 44px; padding-top: 60px; padding-bottom: 68px; }
   .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; }
   .detail-grid { grid-template-columns: 1fr; }
-  .detail-grid .aside { position: static; }
+  .detail-grid .aside { position: static; order: -1; }
   .visit-panel { grid-template-columns: 1fr; }
   .visit-panel > div + div { border-left: none; border-top: 1px solid var(--line); }
   .footer-in { grid-template-columns: 1fr 1fr; }
+  .hero::before { width: 380px; height: 380px; }
 }
 
 @media (max-width: 700px) {
+  body { padding-bottom: 72px; }
+  .mobile-bar { display: flex; }
+  .pract-pair { grid-template-columns: 1fr; }
+  .trust-in { grid-template-columns: 1fr 1fr; gap: 14px; padding: 18px 24px; }
+  .trust-in > div { font-size: 0.8rem; }
   .main-nav {
     position: absolute;
     top: 76px; left: 0; right: 0;
