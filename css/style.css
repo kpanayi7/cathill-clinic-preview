@@ -132,6 +132,24 @@ h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
 
 .brand img { height: 50px; width: auto; }
+.brand .brand-icon { height: 54px; }
+.brand .brand-word { height: 34px; }
+@media (max-width: 640px) { .brand .brand-word { height: 24px; } .brand .brand-icon { height: 44px; } }
+
+/* WhatsApp-first contact (Sept 2026 scope: no booking, no forms) */
+.btn-wa { background: #1FA855; color: #fff; border: 1px solid #1FA855; display: inline-flex; align-items: center; gap: 8px; }
+.btn-wa:hover { background: #178F47; border-color: #178F47; color: #fff; }
+.nav-cta .wa-ic, .btn-wa .wa-ic { font-size: 1em; line-height: 1; }
+.nav-cta .wa-ic { margin-right: 6px; }
+.wa-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow-lg); overflow: hidden; }
+.wa-top { padding: 24px 26px 18px; border-bottom: 1px solid var(--line); background: var(--paper); }
+.wa-top h3 { font-family: var(--serif); font-size: 1.25rem; color: var(--ink); margin: 0 0 8px; }
+.wa-top p { margin: 0; font-size: 0.9rem; }
+.wa-body { padding: 22px 26px 24px; display: flex; flex-direction: column; gap: 10px; }
+.wa-body .btn { width: 100%; justify-content: center; text-align: center; }
+.wa-note { margin: 6px 0 0; font-size: 0.78rem; opacity: 0.75; }
+.wa-card-page .wa-top { padding: 30px 32px 20px; }
+.wa-card-page .wa-body { padding: 26px 32px 30px; }
 
 .brand-name {
   font-family: var(--serif);
