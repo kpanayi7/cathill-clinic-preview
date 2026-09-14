@@ -337,10 +337,10 @@ h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
 
 .trust-strip { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .trust-in { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 22px 24px; }
-.trust-in > div { display: flex; align-items: center; gap: 12px; font-size: 0.85rem; color: var(--body); }
-.trust-in b { display: block; font-family: var(--serif); font-size: 1.05rem; color: var(--ink); line-height: 1.2; }
+.trust-in > div { display: flex; align-items: center; gap: 12px; font-size: 0.85rem; color: var(--body); line-height: 1.35; }
+.trust-in b { display: block; font-family: var(--serif); font-size: 1.05rem; color: var(--ink); line-height: 1.2; margin-bottom: 2px; }
 .trust-in .t-ic { width: 40px; height: 40px; border-radius: 50%; background: var(--sage-soft); border: 1px solid var(--sage-tint); display: flex; align-items: center; justify-content: center; font-size: 1.05rem; flex-shrink: 0; }
-.trust-in img { height: 34px; width: auto; }
+.trust-in .t-mono { background: var(--navy); border-color: var(--navy); color: #fff; font-family: var(--serif); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.06em; }
 
 /* ---------- Mobile sticky bar ---------- */
 
@@ -1064,8 +1064,11 @@ a.card { text-decoration: none; display: block; }
   body { padding-bottom: 72px; }
   .mobile-bar { display: flex; }
   .pract-pair { grid-template-columns: 1fr; }
-  .trust-in { grid-template-columns: 1fr 1fr; gap: 14px; padding: 18px 24px; }
-  .trust-in > div { font-size: 0.8rem; }
+  .trust-in { grid-template-columns: 1fr; gap: 0; padding: 6px 24px; }
+  .trust-in > div { font-size: 0.85rem; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .trust-in > div:last-child { border-bottom: none; }
+  .trust-in b { display: inline; font-size: 1rem; margin-right: 6px; }
+  .trust-in b::after { content: " · "; color: var(--sage); }
   .main-nav {
     position: absolute;
     top: 76px; left: 0; right: 0;
